@@ -1,0 +1,5 @@
+yolov4.weights
+/ava_videos/train
+/ava_videos/val
+/ava_videos/val_edit
+/ava_videos/train_edit
