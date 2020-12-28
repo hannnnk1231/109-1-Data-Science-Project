@@ -38,7 +38,7 @@ class Action_Detector():
 
     def define_inference(self, input_seq, rois, roi_batch_indices):
 
-        with tf.v1.variable_scope('ActionDetector'):
+        with tf.variable_scope('ActionDetector'):
 
             end_point = 'Mixed_4f'
             box_size = [10,10]
@@ -72,7 +72,7 @@ class Action_Detector():
 
             pred_probs = tf.nn.sigmoid(logits)
 
-            self.init_op = tf.v1.global_variables_initializer()
+            self.init_op = tf.global_variables_initializer()
 
             # tf.add_to_collection('debug', [features, box_features, class_feats, logits, pred_probs])
 
@@ -495,7 +495,7 @@ def temporal_roi_cropping(features, rois, batch_indices, crop_size, temp_rois=Fa
     ## cropped boxes 
     cropped_boxes = tf.image.crop_and_resize(image=stacked_features, 
                                              boxes=stacked_rois,
-                                             box_indices=stacked_mapping,
+                                             box_ind=stacked_mapping,
                                              crop_size=crop_size
                                              )
 
