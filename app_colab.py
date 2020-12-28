@@ -479,7 +479,7 @@ def run(path, media_name, iou_threshold = 0.5, score_threshold = 0.5, start_time
     
     rois, roi_batch_indices, pred_probs = act_detector.define_inference_with_placeholders_noinput(cropped_frames)
     
-    ckpt_path = os.path.join('./', 'action_detection', 'weights', ckpt_name)
+    ckpt_path = '/content/drive/MyDrive/DataScienceProject/'+ckpt_name
     act_detector.restore_model(ckpt_path)
 
     prob_dict = {}
