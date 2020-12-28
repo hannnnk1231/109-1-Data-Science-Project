@@ -459,11 +459,8 @@ def run(path, media_name, iou_threshold = 0.5, score_threshold = 0.5, start_time
     print("Processing:", media_name)
     
     media_path = path+media_name
-    
-    if not os.path.exists(media_path):
-        raise FileNotFoundError("{} does not exist".format(media_path))
 
-    cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
+    #cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
     
     bbox_list = rebuildBBoxes(media_name)
 
@@ -546,7 +543,7 @@ def run(path, media_name, iou_threshold = 0.5, score_threshold = 0.5, start_time
             if frame_cnt > 16:
                 store_detection_results(tracker.active_actors, prob_dict, sec_list[-16], media_name)
                 out_img = visualize_detection_results(tracker.frame_history[-16], tracker.active_actors, prob_dict)
-                cv2.imshow('result', out_img[:,:,::-1])
+                #cv2.imshow('result', out_img[:,:,::-1])
                 out_video.write(out_img[:,:,::-1])
                 cv2.waitKey(10)
 
