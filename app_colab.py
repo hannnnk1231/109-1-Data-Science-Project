@@ -594,7 +594,7 @@ val_df['video_id'] = val_df['video_id'].map(video_names_dict)
 val_videos = val_df['video_id'].unique()
 
 #train_path = "ava_videos/train/"
-val_path = "https://s3.amazonaws.com/ava-dataset/trainval"
+val_path = "https://s3.amazonaws.com/ava-dataset/trainval/"
 
 
 # In[ ]:
@@ -622,7 +622,7 @@ val_path = "https://s3.amazonaws.com/ava-dataset/trainval"
 
 
 for media_name in val_videos[30:]:
-    if os.path.exists('bbox_res/'+media_name+'.csv'):
+    if os.path.exists('/content/109-1-Data-Science-Project/bbox_res/'+media_name+'.csv'):
         start = time.time()
         res_list = []
         run(val_path, media_name)
